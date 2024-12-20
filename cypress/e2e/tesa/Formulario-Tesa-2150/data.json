@@ -1,0 +1,11 @@
+{
+  "rutaFormulario": {
+    "menuTesoreria": "Giraduría y Caja",
+    "subMenuTesoreria": "Operaciones de Giraduría",
+    "menuOrdenPago": "Ordenes de Pago",
+    "subMenuOrdenPago": "Autorización Orden Pago"
+  },
+  "beneficiario": {
+    "nombre": "FIGUEREDO BENITEZ , NOELIA ELIZABETH"
+  }
+}

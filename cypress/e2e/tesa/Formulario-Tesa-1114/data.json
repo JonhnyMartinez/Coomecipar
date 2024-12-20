@@ -1,0 +1,14 @@
+{
+  "datosFormulario": {
+    "fechaSistema": "13/12/2024",
+    "cabeceraTitulo": "REPOSICION DE FONDOS DE EXTRACCION",
+    "labelTextoSucursal": "Sucursal:",
+    "nroSucursal": "1",
+    "labelTextoNombreSucursal": "Nombre Sucursal:",
+    "valorNombreSucursal": "ASUNCION",
+    "labelTextoTesoreria": "Tesorería:",
+    "valorTesoreria": "4",
+    "labelTextoNroCaja": "Número Caja:",
+    "labelTextoSolicitud": "Solicitud:"
+  }
+}
