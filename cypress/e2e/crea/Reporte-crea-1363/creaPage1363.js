@@ -3,7 +3,7 @@ export class CreaPage1363 {
     //#region // ----- VISUALIZAR EL INFORME ------//
     this.menuPrincipalButton = "#t_Button_navControl";
     this.menuProcesoButton = "#t_TreeNav_4 > div.a-TreeView-content";
-    this.informeCrea1363 = "#t_TreeNav_22 > div.a-TreeView-content";
+    this.informeCrea1363 = ".a-TreeView-content";
     this.sucursalDesde = "#P157_SUCURSAL_D";
     this.sucursalHasta = "#P157_SUCURSAL_H";
     this.fechaDesde = "#P157_FECHA_D\\|input";
@@ -56,7 +56,9 @@ export class CreaPage1363 {
     cy.get(this.menuProcesoButton).click();
   }
   clickInformeCrea1363() {
-    cy.get(this.informeCrea1363).click();
+    cy.get(this.informeCrea1363)
+      .contains("Designación Tasadores y Escribanos")
+      .click();
   }
   clickSucursalDesde(valorDesde) {
     return cy.get(this.sucursalDesde).select(valorDesde);
@@ -116,12 +118,16 @@ export class CreaPage1363 {
   //#endregion
 
   //#region // ----- VALIDACION FECHADESDE MAYO A FECHAHASTA -----///
+
   clickFechaDesdeInput(fechaDesde) {
     cy.get(this.fechaDesdeInput).type(fechaDesde).type("{enter}");
   }
+
   clickFechaHastaInput(fechaHasta) {
     cy.get(this.fechaHastaInput).type(fechaHasta).type("{enter}");
   }
+
+
   obtenerNotificacionError() {
     cy.get(this.notificacionErrorAlert).should("be.visible");
   }

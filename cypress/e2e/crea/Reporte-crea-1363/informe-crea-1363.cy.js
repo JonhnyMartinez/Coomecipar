@@ -38,6 +38,7 @@ describe(`Casos de Pruebas del ${scenarioName} - ${module} `, () => {
     });
   });
   beforeEach(() => {
+    cy.viewport(1280, 800);
     cy.visit(Cypress.env("creditoUrl"));
     loginPage.completarLogin(
       dataLogin.usuario1.username,
@@ -73,21 +74,47 @@ describe(`Casos de Pruebas del ${scenarioName} - ${module} `, () => {
     creaPage1363.clickMenuPrincipalButton();
     creaPage1363.clickMenuProcesoButton();
     creaPage1363.clickInformeCrea1363();
-    creaPage1363.clickFechaDesdeInput("03112023");
-    creaPage1363.clickFechaHastaInput("01112023");
+    cy.get("#P157_FECHA_D input").then(($input) => {
+      $input.val("03/11/2023");
+    });
+
+    cy.get("#P157_FECHA_H input").then(($input) => {
+      $input.val("01/11/2023");
+    });
+    cy.get('#P157_FECHA_D input', { timeout: 10000 }).type('03112023{enter}');
+    cy.get('#P157_FECHA_H input', { timeout: 10000 }).type('01112023{enter}');
+    //cy.get('#P157_FECHA_D input', { timeout: 10000 }).should('be.visible').type('03112023{enter}');
+
+    //creaPage1363.clickFechaDesdeInput("03112023");
+    //creaPage1363.clickFechaDesdeInput("03112023");
+    //cy.get("#P157_FECHA_D input").trigger("change");
+
+    //creaPage1363.clickFechaHastaInput("01112023");
+
     creaPage1363.clickConfirmarButton();
     creaPage1363.obtenerNotificacionError();
     creaPage1363.obtenerPrimerMensajeError("Se ha producido 1 error");
     creaPage1363.obtenerSegundoMensajeError(
       "Fecha Desde no debe ser mayor a Fecha Hasta"
     );
+
   });
-  it.only(`Validaciones de Fechas Invalido ${module}`, () => {
+  it(`Validaciones de Fechas Invalido ${module}`, () => {
     creaPage1363.clickMenuPrincipalButton();
     creaPage1363.clickMenuProcesoButton();
     creaPage1363.clickInformeCrea1363();
-    creaPage1363.clickFechaDesdeInput("31022021");
-    creaPage1363.clickFechaHastaInput("31022021");
+
+    cy.get("#P157_FECHA_D input").then(($input) => {
+      $input.val("03/02/2023");
+    });
+
+    cy.get("#P157_FECHA_H input").then(($input) => {
+      $input.val("31/02/2023");
+    });
+    cy.get('#P157_FECHA_D input', { timeout: 10000 }).type('31022021{enter}');
+    cy.get('#P157_FECHA_H input', { timeout: 10000 }).type('31022021{enter}');
+    //creaPage1363.clickFechaDesdeInput("31022021");
+    //creaPage1363.clickFechaHastaInput("31022021");
     creaPage1363.clickConfirmarButton();
     creaPage1363.obtenerNotificacionError();
     creaPage1363.obtenerPrimerMensajeError("Se han producido 2 errores");
