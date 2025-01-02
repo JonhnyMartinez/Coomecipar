@@ -45,7 +45,7 @@ describe(`Casos de Pruebas del ${scenarioName} - ${module} `, () => {
       dataLogin.usuario1.password
     );
   });
-  it(`Visualizar el informe ${module}`, () => {
+  it(`Visualizar el informe ${module} - ${scenarioName}`, () => {
     creaPage1363.clickMenuPrincipalButton();
     creaPage1363.clickMenuProcesoButton();
     creaPage1363.clickInformeCrea1363();
